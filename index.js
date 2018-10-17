@@ -26,9 +26,9 @@ client.on("message", async message => {
 	if (cmd === `${prefix}help`) {
 		var botMsg = "Hi!";
 		botMsg += " I'm SCRATCH-O, a super special utility bot for private use written by lombtv!";
-		botMsg += "\n--Moderation--";
-		botMsg += "\n``>help: Shows you all available commands.";
-		botMsg += "\n>uptime: Shows how long I've been running.";
+		botMsg += "\n``--Moderation--";
+		botMsg += `\n${prefix}help: Shows you all available commands.`;
+		botMsg += `\n${prefix}uptime: Shows how long I've been running.`;
 		botMsg += "\n``";
 		return message.channel.send(botMsg);
 	}

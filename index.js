@@ -45,6 +45,10 @@ client.on("message", async message => {
 		return message.channel.send(uptime);
 	}
 
+	if (comd ===`${prefix}repeat`) {
+		return message.channel.send(args);
+	}
+
 });
 
 client.login(process.env.BOT_TOKEN);

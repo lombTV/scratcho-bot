@@ -1,4 +1,13 @@
 {
-	"token":"",
-	"prefix": ">"
+	"name": "SCRATCH-O",
+	"description": "Utility discord bot for private use",
+	"version": "0.0.0",
+	"main": "index.js",
+	"prefix": ">",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"discord.js": "11.1.0",
+	}
 }

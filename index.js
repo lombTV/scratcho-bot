@@ -20,7 +20,11 @@ client.on("message", async message => {
 	/* Help Function */
 
 	if (cmd === `${prefix}help`) {
-		return message.channel.send("Hi, I'm SCRATCH-O, a super special utility bot for private use written by lombtv!");
+		var botMsg = "Hi!";
+		botMsg += " I'm SCRATCH-O, a super special utility bot for private use written by lombtv!";
+		botMsg += "\n``>help: Shows you all available commands.";
+		botMsg += "\n``";
+		return message.channel.send(botMsg);
 	}
 
 });

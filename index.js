@@ -27,6 +27,7 @@ client.on("message", async message => {
 		var botMsg = "Hi!";
 		botMsg += " I'm SCRATCH-O, a super special utility bot for private use written by lombtv!";
 		botMsg += "\n``--Moderation--";
+		botMsg += `\n${prefix}repeat: Repeats a message you pass.`;
 		botMsg += `\n${prefix}help: Shows you all available commands.`;
 		botMsg += `\n${prefix}uptime: Shows how long I've been running.`;
 		botMsg += "\n``";
@@ -46,7 +47,12 @@ client.on("message", async message => {
 	}
 
 	if (cmd ===`${prefix}repeat`) {
-		return message.channel.send(args);
+		if (args === "") {
+			return message.channel.send("No message was given! Try ``repeat [your_message].``");
+		} else {
+			return message.channel.send(args);
+		}
+		
 	}
 
 });

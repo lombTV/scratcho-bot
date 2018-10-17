@@ -47,7 +47,7 @@ client.on("message", async message => {
 	}
 
 	if (cmd ===`${prefix}repeat`) {
-		if (args === "") {
+		if (args) {
 			return message.channel.send("No message was given! Try ``repeat [your_message].``");
 		} else {
 			return message.channel.send(args);

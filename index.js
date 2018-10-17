@@ -45,7 +45,7 @@ client.on("message", async message => {
 		return message.channel.send(uptime);
 	}
 
-	if (comd ===`${prefix}repeat`) {
+	if (cmd ===`${prefix}repeat`) {
 		return message.channel.send(args);
 	}
 

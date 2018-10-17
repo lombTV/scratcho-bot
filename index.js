@@ -5,6 +5,7 @@ const client = new Discord.Client({disableEveryone: true});
 
 client.on("ready", async () => {
 	console.log(`${client.user.username} is online!`);
+	bot.user.setGame('Try >help!')
 });
 
 client.on("message", async message => {
@@ -16,17 +17,12 @@ client.on("message", async message => {
 	let cmd = messageArray[0]; // Command is whatever value comes after the prefix
 	let args = messageArray.slice(1); // Whatever the argument is
 
-	/* Repeat after me! */
+	/* Help Function */
 
-	if (cmd === `${prefix}hello`) {
-		return message.channel.send("Hello!");
+	if (cmd === `${prefix}help`) {
+		return message.channel.send("Hi, I'm SCRATCH-O, a super special utility bot for private use written by lombtv!");
 	}
 
 });
-
-
-function sayHello() {
-	return message.channel.send("Hello!");
-}
 
 client.login(process.env.BOT_TOKEN);

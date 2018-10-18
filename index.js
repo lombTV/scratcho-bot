@@ -65,7 +65,7 @@ client.on("message", async message => {
 	}
 
 	if (cmd === `serverinfo`) {
-		let servericon = message.guild.displayAvatarURL;
+		let servericon = message.guild.iconURL;
 		let serverembed = new Discord.RichEmbed()
 		.setDescription("Server Information")
 		.setColor("#ff00ff")

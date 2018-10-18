@@ -15,18 +15,19 @@ client.on('guildMemberAdd', member => {
 client.on("message", async message => {
 	if (message.author.bot) return;
 	if (message.channel.type === "dm") return;
+	if (!message.content.startsWith(prefix)) return;
 
 	let prefix = botconfig.prefix;
 	let messageArray = message.content.split(" ");
-	let cmd = messageArray[0]; // Command is whatever value comes after the prefix
+	let cmd = messageArray[0].shift().toLowerCase(); // Command is whatever value comes after the prefix
 	let args = messageArray.slice(1); // Whatever the argument is
 
 	/* Help Function */
 
-	if (cmd === `${prefix}help`) {
+	if (cmd === `help`) {
 		var botMsg = "Hi!";
 		botMsg += " I'm SCRATCH-O, a super special utility bot for private use written by lombtv!";
-		botMsg += "\n``--Moderation--";
+		botMsg += "\n``--Misc.--";
 		botMsg += `\n${prefix}repeat: Repeats a message you pass.`;
 		botMsg += `\n${prefix}help: Shows you all available commands.`;
 		botMsg += `\n${prefix}uptime: Shows how long I've been running.`;
@@ -36,7 +37,7 @@ client.on("message", async message => {
 
 	/* Return Uptime to User */
 
-	if (cmd === `${prefix}uptime`) {
+	if (cmd === `uptime`) {
 		let totalSeconds = (client.uptime / 1000);
 		let hours = Math.floor(totalSeconds / 3600);
 		totalSeconds %= 3600;
@@ -46,9 +47,9 @@ client.on("message", async message => {
 		return message.channel.send(uptime);
 	}
 
-	if (cmd ===`${prefix}repeat`) {
+	if (cmd ===`repeat`) {
 		if (args) {
-			return message.channel.send("No message was given! Try ``repeat [your_message].``");
+			return message.channel.send("No message was given! Try ``repeat [your_message]``.");
 		} else {
 			return message.channel.send(args);
 		}

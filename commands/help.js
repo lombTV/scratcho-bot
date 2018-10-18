@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 		var botMsg = "Hi!";
-		botMsg += " I'm SCRATCH-O, a super special utility bot for private use written by lombtv!";
+		botMsg += " My name's SCRATCH-O, and I'm a utility bot for private use written by lombtv!";
 		botMsg += "\n``--Information--";
 		botMsg += `\n${prefix}help: Shows you all available commands.`;
 		botMsg += `\n${prefix}uptime: Shows how long I've been running.`;

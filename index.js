@@ -57,8 +57,7 @@ client.on("message", async message => {
 		.setDescription("SCRATCH-O Information")
 		.setColor("#dd0000")
 		.setThumbnail(boticon)
-		.addField("Bot Name", client.user.username)
-		.addField("Source Code", "https://github.com/lombTV/scratcho-bot");
+		.addField("Bot Name", client.user.username);
 
 		return message.channel.send(botembed);
 	}

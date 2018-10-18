@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const botconfig = require("./botconfig.json");
 
 
-module.exports.run = async (client, message, args, prefix) => {
+module.exports.run = async (client, message, args) => {
 		console.log("Running help command...");
 		let prefix = botconfig.prefix;
 		let botMsg = "Hi!";

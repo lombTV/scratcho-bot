@@ -32,6 +32,7 @@ client.on("message", async message => {
 		botMsg += `\n${prefix}help: Shows you all available commands.`;
 		botMsg += `\n${prefix}uptime: Shows how long I've been running.`;
 		botMsg += `\n${prefix}botinfo: Information about the bot is stored here.`;
+		botMsg += `\n${prefix}serverinfo: Information about the server is stored here.`;
 		botMsg += "\n--Fun--";
 		botMsg += `\n${prefix}repeat: Repeats a message you pass.`;
 		botMsg += "\n``";
@@ -55,12 +56,27 @@ client.on("message", async message => {
 		let boticon = client.user.displayAvatarURL;
 		let botembed = new Discord.RichEmbed()
 		.setDescription("SCRATCH-O Information")
-		.setColor("#dd0000")
+		.setColor("#0000ff")
 		.setThumbnail(boticon)
 		.addField("Bot Name", client.user.username)
 		.addField("Source Code", "https://github.com/lombTV/scratcho-bot");
 
 		return message.channel.send(botembed);
+	}
+
+	if (cmd === `serverinfo`) {
+		let servericon = message.guild.displayAvatarURL;
+		let serverembed = new Discord.RichEmbed()
+		.setDescription("Server Information")
+		.setColor("#ff00ff")
+		.setThumbnail(servericon)
+		.addField("Server Name", message.guild.name)
+		.addField("Created On ", message.guild.createdAt)
+		.addField("User Joined ", message.member.joinedAt)
+		.addField("Members: ", message.guild.memberCount)
+		.addField("Owner: ", message.guild.owner);
+
+		return message.channel.send(serverembed);
 	}
 
 	/* Repeat after me */

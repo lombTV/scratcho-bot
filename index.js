@@ -4,7 +4,7 @@ const client = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 client.commands = new Discord.Collection();
 
-fs.readdir("./commands/", (err, file), => {
+fs.readdir("./commands/", (err, file) => {
 	/* Gets each .js file found in the commands folder and makes them a command in the bot. */
 	if (err) console.log(err);
 	let jsfile = files.filter(f => f.split(".").pop() === "js");

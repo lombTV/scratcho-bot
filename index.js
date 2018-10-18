@@ -55,7 +55,7 @@ client.on("message", async message => {
 		let botembed = new Discord.RichEmbed()
 		.setDescription("Bot Information")
 		.setColor("#dd0000")
-		.addField("Bot Name", bot.user.username)
+		.addField("Bot Name", client.user.username)
 		.addField("Creator", "lombtv");
 
 		return message.channel.send(botembed);

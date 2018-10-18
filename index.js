@@ -31,11 +31,14 @@ client.on("ready", async () => {
 client.on('guildMemberAdd', member => {
 	console.log("New Member Joined: " + member.user.username);
 	const channel = member.guild.channels.find("name", "general");
-	if (member.user.username.includes("discord.gg")) {
+	if (member.user.username.includes("discord") & member.user.username.includes("gg")) {
 		member.ban("Username contained a Discord Invite link.");
 		console.log("Member " + member.user.username + " with Discord Invite Link for a name has been banned.");
+		return channel.send("Warning: User with a Discord Invite Link in their name has been banned.");
+	} else {
+		return channel.send("Welcome, " + member.user.username + "!");
 	}
-	return channel.send("Welcome, " + member.user.username + "!");
+	
 });
 
 client.on("message", async message => {

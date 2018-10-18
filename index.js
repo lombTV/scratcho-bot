@@ -52,10 +52,13 @@ client.on("message", async message => {
 
 	/* Return Bot Information */
 	if (cmd === `botinfo`) {
+		let boticon = client.user.displayAvatarURL;
 		let botembed = new Discord.RichEmbed()
 		.setDescription("SCRATCH-O Information")
 		.setColor("#dd0000")
+		.setThumbnail(boticon)
 		.addField("Bot Name", client.user.username);
+		.addField("Source Code", "https://github.com/lombTV/scratcho-bot")
 
 		return message.channel.send(botembed);
 	}

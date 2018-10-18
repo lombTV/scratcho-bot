@@ -5,7 +5,7 @@ const client = new Discord.Client({disableEveryone: true});
 
 client.on("ready", async () => {
 	console.log(`${client.user.username} is online!`);
-	client.user.setGame('Try >help!');
+	client.user.setActivity('Try >help!');
 });
 
 client.on('guildMemberAdd', member => {
@@ -15,7 +15,7 @@ client.on('guildMemberAdd', member => {
 client.on("message", async message => {
 	if (message.author.bot) return;
 	if (message.channel.type === "dm") return;
-	if (!message.content.startsWith(prefix)) return;
+	if (!message.content.startsWith(botconfig.prefix)) return;
 
 	let prefix = botconfig.prefix;
 	let messageArray = message.content.split(" ");

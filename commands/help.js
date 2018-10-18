@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
+const botconfig = require("./botconfig.json");
 
-module.exports.run = async (client, message, args) => {
+
+module.exports.run = async (client, message, args, prefix) => {
 		console.log("Running help command...");
-		var botMsg = "Hi!";
+		let prefix = botconfig.prefix;
+		let botMsg = "Hi!";
 		botMsg += " My name's SCRATCH-O, and I'm a utility bot for private use written by lombtv!";
 		botMsg += "\n``--Information--";
 		botMsg += `\n${prefix}help: Shows you all available commands.`;

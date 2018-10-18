@@ -29,7 +29,7 @@ client.on("ready", async () => {
 });
 
 client.on('guildMemberAdd', member => {
-	if (member.user.username.includes("discord.gg") {
+	if (member.user.username.includes("discord.gg")) {
 		member.ban("Username contained a Discord Invite link.");
 	}
     member.guild.channels.get('channelID').send("Welcome, " + member.user.username + "!"); 

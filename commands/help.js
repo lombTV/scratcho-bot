@@ -11,6 +11,7 @@ module.exports.run = async (client, message, args) => {
 		botMsg += `\nserverinfo: Information about the server is stored here.`;
 		botMsg += "\n--Fun--";
 		botMsg += `\nrepeat: Repeats a message you pass.`;
+		botMsg += `\nalwayssunny: Generates an Always Sunny title card.`;
 		botMsg += "\n``";
 		return message.channel.send(botMsg);
 }

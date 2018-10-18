@@ -39,8 +39,7 @@ client.on("message", async message => {
 
 	let prefix = botconfig.prefix;
 	let messageArray = message.content.split(" ");
-	let cmd = messageArray[0]; // Command the user asked for.
-	cmd = cmd.toLowerCase().substr(1);
+	let cmd = messageArray[0];
 	let args = messageArray.slice(1); // Whatever the argument is
 
 	let commandfile = client.commands.get(cmd.slice(prefix.length));
@@ -48,7 +47,7 @@ client.on("message", async message => {
 
 	/* Return Uptime to User */
 
-	if (cmd === `uptime`) {
+	if (cmd === `${prefix}uptime`) {
 		let totalSeconds = (client.uptime / 1000);
 		let hours = Math.floor(totalSeconds / 3600);
 		totalSeconds %= 3600;

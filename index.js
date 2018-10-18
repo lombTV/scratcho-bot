@@ -43,54 +43,7 @@ client.on("message", async message => {
 	let args = messageArray.slice(1); // Whatever the argument is
 
 	let commandfile = client.commands.get(cmd.slice(prefix.length));
-	if (commandfile) commandfile.run(client, message, args, prefix);
-
-	/* Return Uptime to User */
-
-	if (cmd === `${prefix}uptime`) {
-		let totalSeconds = (client.uptime / 1000);
-		let hours = Math.floor(totalSeconds / 3600);
-		totalSeconds %= 3600;
-		let minutes = Math.floor(totalSeconds / 60);
-		let seconds = Math.round(totalSeconds % 60);
-		let uptime = `I've been online for ${hours} hours, ${minutes} minutes and ${seconds} seconds.`;
-		return message.channel.send(uptime);
-	}
-
-	// /* Return Bot Information */
-	// if (cmd === `botinfo`) {
-	// 	let boticon = client.user.displayAvatarURL;
-	// 	let botembed = new Discord.RichEmbed()
-	// 	.setDescription("SCRATCH-O Information")
-	// 	.setColor("#0000ff")
-	// 	.setThumbnail(boticon)
-	// 	.addField("Bot Name", client.user.username)
-	// 	.addField("Source Code", "https://github.com/lombTV/scratcho-bot");
-
-	// 	return message.channel.send(botembed);
-	// }
-
-	// /* Return Server Information */
-	// if (cmd === `serverinfo`) {
-	// 	let servericon = message.guild.iconURL;
-	// 	let serverembed = new Discord.RichEmbed()
-	// 	.setDescription("Server Information")
-	// 	.setColor("#ff00ff")
-	// 	.setThumbnail(servericon)
-	// 	.addField("Server Name", message.guild.name)
-	// 	.addField("Created On ", message.guild.createdAt)
-	// 	.addField("User Joined ", message.member.joinedAt)
-	// 	.addField("Members: ", message.guild.memberCount)
-	// 	.addField("Owner: ", message.guild.owner);
-
-	// 	return message.channel.send(serverembed);
-	// }
-
-	// /* Repeat after me */
-
-	// if (cmd ===`repeat`) {
-	// 	return message.channel.send(args);
-	// }
+	if (commandfile) commandfile.run(client, message, args);
 
 });
 

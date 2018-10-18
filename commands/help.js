@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
+		console.log("Running help command...");
 		var botMsg = "Hi!";
 		botMsg += " My name's SCRATCH-O, and I'm a utility bot for private use written by lombtv!";
 		botMsg += "\n``--Information--";

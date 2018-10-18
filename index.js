@@ -28,10 +28,12 @@ client.on("message", async message => {
 	if (cmd === `help`) {
 		var botMsg = "Hi!";
 		botMsg += " I'm SCRATCH-O, a super special utility bot for private use written by lombtv!";
-		botMsg += "\n``--Misc.--";
-		botMsg += `\n${prefix}repeat: Repeats a message you pass.`;
+		botMsg += "\n``--Information--";
 		botMsg += `\n${prefix}help: Shows you all available commands.`;
 		botMsg += `\n${prefix}uptime: Shows how long I've been running.`;
+		botMsg += `\n${prefix}botinfo: Information about the bot is stored here.`;
+		botMsg += "\n``--Fun--";
+		botMsg += `\n${prefix}repeat: Repeats a message you pass.`;
 		botMsg += "\n``";
 		return message.channel.send(botMsg);
 	}
@@ -44,17 +46,25 @@ client.on("message", async message => {
 		totalSeconds %= 3600;
 		let minutes = Math.floor(totalSeconds / 60);
 		let seconds = totalSeconds % 60;
-		let uptime = `${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+		let uptime = `I've been online for ${hours} hours, ${minutes} minutes and ${seconds} seconds.`;
 		return message.channel.send(uptime);
 	}
 
+	/* Return Bot Information */
+	if (cmd === `botinfo`) {
+		let botembed = new Discord.RichEmbed()
+		.setDescription("Bot Information")
+		.setColor("#dd0000")
+		.addField("Bot Name", bot.user.username)
+		.addField("Creator", "lombtv");
+
+		return message.channel.send(botembed);
+	}
+
+	/* Repeat after me */
+
 	if (cmd ===`repeat`) {
-		if (args) {
-			return message.channel.send("No message was given! Try ``repeat [your_message]``.");
-		} else {
-			return message.channel.send(args);
-		}
-		
+		return message.channel.send(args);
 	}
 
 });

@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
-	let j = "\"" + args +"\"";
+
+	let j = "\"" + args.join(" ") +"\"";
 	console.log(j);
 	let b = Buffer.from(j, 'binary').toString('base64');
 	console.log(Buffer.from(b, 'base64').toString('binary'));

@@ -32,7 +32,7 @@ client.on("message", async message => {
 		botMsg += `\n${prefix}help: Shows you all available commands.`;
 		botMsg += `\n${prefix}uptime: Shows how long I've been running.`;
 		botMsg += `\n${prefix}botinfo: Information about the bot is stored here.`;
-		botMsg += "\n``--Fun--";
+		botMsg += "\n--Fun--";
 		botMsg += `\n${prefix}repeat: Repeats a message you pass.`;
 		botMsg += "\n``";
 		return message.channel.send(botMsg);
@@ -53,7 +53,7 @@ client.on("message", async message => {
 	/* Return Bot Information */
 	if (cmd === `botinfo`) {
 		let botembed = new Discord.RichEmbed()
-		.setDescription("Bot Information")
+		.setDescription("SCRATCH-O Information")
 		.setColor("#dd0000")
 		.addField("Bot Name", client.user.username);
 

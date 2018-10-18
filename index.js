@@ -44,19 +44,19 @@ client.on("message", async message => {
 	let args = messageArray.slice(1); // Whatever the argument is
 
 	let commandfile = client.commands.get(cmd.slice(prefix.length));
-	if (commandfile) commandfile.run(bot, message, args);
+	if (commandfile) commandfile.run(client, message, args);
 
-	// /* Return Uptime to User */
+	/* Return Uptime to User */
 
-	// if (cmd === `uptime`) {
-	// 	let totalSeconds = (client.uptime / 1000);
-	// 	let hours = Math.floor(totalSeconds / 3600);
-	// 	totalSeconds %= 3600;
-	// 	let minutes = Math.floor(totalSeconds / 60);
-	// 	let seconds = totalSeconds % 60;
-	// 	let uptime = `I've been online for ${hours} hours, ${minutes} minutes and ${seconds} seconds.`;
-	// 	return message.channel.send(uptime);
-	// }
+	if (cmd === `uptime`) {
+		let totalSeconds = (client.uptime / 1000);
+		let hours = Math.floor(totalSeconds / 3600);
+		totalSeconds %= 3600;
+		let minutes = Math.floor(totalSeconds / 60);
+		let seconds = totalSeconds % 60;
+		let uptime = `I've been online for ${hours} hours, ${minutes} minutes and ${seconds} seconds.`;
+		return message.channel.send(uptime);
+	}
 
 	// /* Return Bot Information */
 	// if (cmd === `botinfo`) {

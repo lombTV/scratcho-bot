@@ -1,7 +1,24 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-
 const client = new Discord.Client({disableEveryone: true});
+const fs = require("fs");
+client.commands = new Discord.Collection();
+
+fs.readdir("./commands/", (err, file), => {
+	/* Gets each .js file found in the commands folder and makes them a command in the bot. */
+	if (err) console.log(err);
+	let jsfile = files.filter(f => f.split(".").pop() === "js");
+	if (jsfile.length <= 0) {
+		console.log("Could not find command files.");
+		return;
+	}
+	jsfile.foreach((f, i) => {
+		let props = require(`./commands/${f}`);
+		console.log(`${f} was loaded successfully.`);
+		client.commands.set(props.help.name, props);
+	});
+
+});
 
 client.on("ready", async () => {
 	console.log(`${client.user.username} is online!`);
@@ -23,21 +40,8 @@ client.on("message", async message => {
 	cmd = cmd.toLowerCase().substr(1);
 	let args = messageArray.slice(1); // Whatever the argument is
 
-	/* Help Function */
-
-	if (cmd === `help`) {
-		var botMsg = "Hi!";
-		botMsg += " I'm SCRATCH-O, a super special utility bot for private use written by lombtv!";
-		botMsg += "\n``--Information--";
-		botMsg += `\n${prefix}help: Shows you all available commands.`;
-		botMsg += `\n${prefix}uptime: Shows how long I've been running.`;
-		botMsg += `\n${prefix}botinfo: Information about the bot is stored here.`;
-		botMsg += `\n${prefix}serverinfo: Information about the server is stored here.`;
-		botMsg += "\n--Fun--";
-		botMsg += `\n${prefix}repeat: Repeats a message you pass.`;
-		botMsg += "\n``";
-		return message.channel.send(botMsg);
-	}
+	let commandfile = client.commands.get(cmd.slice(prefix.length));
+	if (commandfile) commandfile.run(bot, message, args);
 
 	/* Return Uptime to User */
 
@@ -64,6 +68,7 @@ client.on("message", async message => {
 		return message.channel.send(botembed);
 	}
 
+	/* Return Server Information */
 	if (cmd === `serverinfo`) {
 		let servericon = message.guild.iconURL;
 		let serverembed = new Discord.RichEmbed()

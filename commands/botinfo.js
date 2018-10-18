@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 
+/* Returns information about the bot. */
+
 module.exports.run = async (client, message, args) => {
 	let boticon = client.user.displayAvatarURL;
 	let botembed = new Discord.RichEmbed()

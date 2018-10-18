@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 
+/* Returns the time the bot has been running. */
+
 module.exports.run = async (client, message, args) => {
 		let totalSeconds = (client.uptime / 1000);
 		let hours = Math.floor(totalSeconds / 3600);

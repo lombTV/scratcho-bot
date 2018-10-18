@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 
+/* Returns information about the server. */
+
 module.exports.run = async (client, message, args) => {
 	let servericon = message.guild.iconURL;
 	let serverembed = new Discord.RichEmbed()

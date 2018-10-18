@@ -3,9 +3,10 @@ const Discord = require("discord.js");
 /* Returns ping time. */
 
 module.exports.run = async (client, message, args) => {
-		return message.channel.send("Break, cmon. ``" + new Date().getTime() - message.createdTimestamp + " ms``");
+	let msg = "Break, cmon. ``" + new Date().getTime() + message.createdTimestamp + " ms``";
+	return message.channel.send(msg);
 }
 
 module.exports.help = {
-	name: "help"
+	name: "ping"
 }

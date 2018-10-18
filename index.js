@@ -4,7 +4,7 @@ const client = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 client.commands = new Discord.Collection();
 
-fs.readdir("./commands/", (err, file) => {
+fs.readdir("./commands/", (err, files) => {
 	/* Gets each .js file found in the commands folder and makes them a command in the bot. */
 	if (err) console.log(err);
 
@@ -18,7 +18,7 @@ fs.readdir("./commands/", (err, file) => {
 		let props = require(`./commands/${f}`);
 		console.log(`${f} was loaded successfully.`);
 		client.commands.set(props.help.name, props);
-		
+
 	});
 
 });

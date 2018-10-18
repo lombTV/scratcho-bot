@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 	let b = new Buffer("\"" + args +"\"");
-	let s = b.toString('base64');
+	let s = btoa("\"" + args +"\"");
 	return message.channel.send(`http://alexanderlozada.com/iasip/?${s} :ok_hand:`);
 }
 

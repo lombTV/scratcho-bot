@@ -19,7 +19,8 @@ client.on("message", async message => {
 
 	let prefix = botconfig.prefix;
 	let messageArray = message.content.split(" ");
-	let cmd = messageArray[0].shift().toLowerCase(); // Command is whatever value comes after the prefix
+	let cmd = messageArray[0]; // Command the user asked for.
+	cmd = cmd.toLowerCase().substr(1);
 	let args = messageArray.slice(1); // Whatever the argument is
 
 	/* Help Function */

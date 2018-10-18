@@ -43,7 +43,7 @@ client.on("message", async message => {
 	let args = messageArray.slice(1); // Whatever the argument is
 
 	let commandfile = client.commands.get(cmd.slice(prefix.length));
-	if (commandfile) commandfile.run(client, message, args);
+	if (commandfile) commandfile.run(client, message, args, prefix);
 
 	/* Return Uptime to User */
 

@@ -15,6 +15,8 @@ module.exports.run = async (client, message, args) => {
 	  password: process.env.MYSQL_PASS
 	});
 
+	console.log(process.env.MYSQL_HOST + " is my host.");
+
 	con.connect(function(err) {
 	  if (err) console.log(err);
 	  console.log("Connected!");

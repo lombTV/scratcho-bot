@@ -42,6 +42,14 @@ client.on('guildMemberAdd', member => {
 	
 });
 
+client.on('guildMemberRemove', member => {
+	console.log("Member Left: " + member.user.username);
+	const channel = member.guild.channels.find("name", "general");
+	return channel.send(member.user.username + " has left the server. Goodbye!");
+});
+
+
+
 client.on("message", async message => {
 	if (message.author.bot) return;
 	if (message.channel.type === "dm") return;

@@ -10,6 +10,7 @@ module.exports.run = async (client, message, args) => {
 		botMsg += `\nuptime: Shows how long I've been running.`;
 		botMsg += `\nbotinfo: Information about the bot is stored here.`;
 		botMsg += `\nserverinfo: Information about the server is stored here.`;
+		botMsg += `\nping: Pong.`;
 		botMsg += "\n--Fun--";
 		botMsg += `\nrepeat: Repeats a message you pass.`;
 		botMsg += `\nalwayssunny: Generates an Always Sunny title card.`;

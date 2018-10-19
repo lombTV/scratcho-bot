@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
 	prefixes[message.guild.id] = {
 		prefixes: args[0]
 	};
-
+	console.log("Writing prefix...");
 	fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
 		if (err) console.log("Error! " + err)
 	});

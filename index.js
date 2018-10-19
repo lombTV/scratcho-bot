@@ -60,6 +60,7 @@ client.on("message", async message => {
 	if (!message.content.startsWith(botconfig.prefix)) return;
 
 	let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf-8"));
+	// If the server doesn't have a prefix set, use default.
 	if(!prefixes[message.guild.id]) {
 		prefixes[message.guild.id] = {
 			prefixes: botconfig.prefix
@@ -67,9 +68,9 @@ client.on("message", async message => {
 
 	}
 
-	let prefix = prefixes[message.guild.id].prefixes;
 
-	// let prefix = botconfig.prefix;
+	let prefix = prefixes[message.guild.id].prefixes;
+	
 	let messageArray = message.content.split(" ");
 	let cmd = messageArray[0];
 	let args = messageArray.slice(1); // Whatever the argument is

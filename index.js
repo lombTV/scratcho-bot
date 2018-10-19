@@ -62,7 +62,7 @@ client.on("message", async message => {
 	let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf-8"));
 	if(!prefixes[message.guild.id]) {
 		prefixes[message.guild.id] = {
-			prefixes: botconfig.prefixes;
+			prefixes: botconfig.prefix;
 		};
 
 	}

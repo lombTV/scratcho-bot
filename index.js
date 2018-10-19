@@ -2,6 +2,7 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
+const mysql = require('mysql');
 client.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
@@ -70,7 +71,6 @@ client.on("message", async message => {
 
 
 	let prefix = prefixes[message.guild.id].prefixes;
-	
 	let messageArray = message.content.split(" ");
 	let cmd = messageArray[0];
 	let args = messageArray.slice(1); // Whatever the argument is

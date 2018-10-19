@@ -9,7 +9,16 @@ module.exports.run = async (client, message, args) => {
 	if (!message.member.hasPermission("MANAGE_SERVER")) return message.reply("Sorry, you don't have permission to use this function.");
 
 	
-	
+	var con = mysql.createConnection({
+	  host: process.env.MYSQL_HOST,
+	  user: process.env.MSQL_USER,
+	  password: process.env.PASS
+	});
+
+	con.connect(function(err) {
+	  if (err) throw err;
+	  console.log("Connected!");
+	});
 
 	let sEmbed = new Discord.RichEmbed()
 	.setColor("#0f0fdd")

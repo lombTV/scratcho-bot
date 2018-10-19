@@ -11,8 +11,8 @@ module.exports.run = async (client, message, args) => {
 	
 	var con = mysql.createConnection({
 	  host: process.env.MYSQL_HOST,
-	  user: process.env.MSQL_USER,
-	  password: process.env.PASS
+	  user: process.env.MYSQL_USER,
+	  password: process.env.MYSQL_PASS
 	});
 
 	con.connect(function(err) {

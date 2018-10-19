@@ -45,7 +45,11 @@ client.on('guildMemberAdd', member => {
 client.on('guildMemberRemove', member => {
 	console.log("Member Left: " + member.user.username);
 	const channel = member.guild.channels.find("name", "general");
-	return channel.send(member.user.username + " has left the server. Goodbye!");
+	if (member.user.username.includes("discord") && member.user.username.includes("gg")) {
+		return;
+	} else {
+		return channel.send(member.user.username + " has left the server. Goodbye!");
+	}
 });
 
 
@@ -55,7 +59,17 @@ client.on("message", async message => {
 	if (message.channel.type === "dm") return;
 	if (!message.content.startsWith(botconfig.prefix)) return;
 
-	let prefix = botconfig.prefix;
+	let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf-8"));
+	if(!prefixes[message.guild.id]) {
+		prefixes[message.guild.id] = {
+			prefixes: botconfig.prefixes;
+		};
+
+	}
+
+	let prefix = prefixes[message.guild.id].prefixes;
+
+	// let prefix = botconfig.prefix;
 	let messageArray = message.content.split(" ");
 	let cmd = messageArray[0];
 	let args = messageArray.slice(1); // Whatever the argument is

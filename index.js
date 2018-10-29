@@ -19,7 +19,6 @@ fs.readdir("./commands/", (err, files) => {
 		let props = require(`./commands/${f}`);
 		console.log(`${f} was loaded successfully.`);
 		client.commands.set(props.help.name, props);
-
 	});
 
 });
@@ -31,12 +30,11 @@ client.on("ready", async () => {
 
 client.on('guildMemberAdd', member => {
 	console.log("New Member Joined: " + member.user.username);
-	const channel = member.guild.channels.find("name", "general");
+	const channel = member.guild.channels.find(c => c.name == "general");
 	if (member.user.username.includes("discord") && member.user.username.includes("gg")) {
 		member.ban("Username contained a Discord Invite link.");
 		console.log("Member " + member.user.username + " with Discord Invite Link for a name has been banned.");
 		return channel.send("Warning: User with a Discord Invite Link in their name has been banned.\nUser ID: " + member.user.id);
-
 	} else {
 		return channel.send("Welcome, " + member.user.username + "!");
 	}
@@ -45,7 +43,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
 	console.log("Member Left: " + member.user.username);
-	const channel = member.guild.channels.find("name", "general");
+	const channel = member.guild.channels.find(c => c.name == "general");
 	if (member.user.username.includes("discord") && member.user.username.includes("gg")) {
 		return;
 	} else {
@@ -66,9 +64,7 @@ client.on("message", async message => {
 		prefixes[message.guild.id] = {
 			prefixes: botconfig.prefix
 		};
-
 	}
-
 
 	let prefix = prefixes[message.guild.id].prefixes;
 	let messageArray = message.content.split(" ");

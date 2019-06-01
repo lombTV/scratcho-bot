@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 module.exports.run = async (client, message, args) => {
 	let j = "\"" + args.join(" ") +"\"";
 	let b = Buffer.from(j, 'binary').toString('base64');
-	return message.channel.send(`https://alwayssunnygenerator.netlify.com/${b} :ok_hand:`);
+	return message.channel.send(`https://alwayssunnygenerator.netlify.com/?${b} :ok_hand:`);
 }
 
 module.exports.help = {
